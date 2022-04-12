@@ -39,7 +39,7 @@
           </div>
 
           <div class="form-group">
-           <textarea id="summernote" name="content" > {{$post->content}}</textarea>
+           <textarea id="summernote" name="content"> {{$post->content}}</textarea>
          </div>
 
          <div class="form-group">

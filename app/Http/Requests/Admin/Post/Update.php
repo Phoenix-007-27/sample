@@ -28,8 +28,8 @@ class Update extends FormRequest
             'content' => 'string',
             'category_id' => '',
             'tags'=> '',
-            'preview_image'=> 'file',
-            'main_image'=> 'file',
+            'preview_image'=> '',
+            'main_image'=> '',
         ];
     }
 }
