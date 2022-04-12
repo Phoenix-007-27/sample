@@ -10,9 +10,11 @@ use App\Http\Requests\Admin\Post\Store;
 class StoreController extends Controller
 {
    public function __invoke(Store $request){
-     
+
 
 $data = $request->validated();
+
+dd($data);
 
 
 $tags = $data['tags'];

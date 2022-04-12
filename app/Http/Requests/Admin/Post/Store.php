@@ -28,6 +28,10 @@ class Store extends FormRequest
             'content' => 'required|string',
             'category_id' => '',
             'tags'=> 'required',
+            'preview_image'=> 'required|file',
+            'main_image'=> 'required|file',
+
+
 
 
         ];

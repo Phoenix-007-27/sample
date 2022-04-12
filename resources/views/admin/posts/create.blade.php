@@ -11,7 +11,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">HomeHome</a></li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Добавление поста</li>
             </ol>
           </div><!-- /.col -->
@@ -30,9 +30,9 @@
 
 <div class="col-12">
       Добавление поста
-      <form action="{{route('admin.post.store')}}" method="POST">
+      <form action="{{route('admin.post.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="form-group">
+        <div class="form-group w-50">
 
             <input type="text" class="form-control" name="title" id="title"  placeholder="Название поста"
             value="{{old('title')}}">
@@ -45,20 +45,38 @@
 
 
     <textarea id="summernote" name="content"></textarea>
-</form>
+
 
 </div>
+<div class="form-group w-50">
+    <label for="exampleInputFile">Preview Image</label>
+    <div class="input-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" name="preview_image" >
+        <label class="custom-file-label" >Choose file</label>
+      </div>
+      <div class="input-group-append">
+        <span class="input-group-text">Upload</span>
+      </div>
+    </div>
+  </div>
 
-        {{-- <div class="form-group">
+  <div class="form-group w-50">
+    <label for="exampleInputFile">Main Image</label>
+    <div class="input-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" name="main_image" >
+        <label class="custom-file-label" >Choose file</label>
+      </div>
+      <div class="input-group-append">
+        <span class="input-group-text">Upload</span>
+      </div>
+    </div>
+  </div>
 
-            <input type="text" class="form-control" name="content" id="content"  placeholder="контент" value="{{old('content')}}">
-            @error('content')
-            <div class="text-danger">Это поле необходимо для заполнения</div>
 
-            @enderror
-</div> --}}
 
-      <div class="form-group">
+      <div class="form-group w-50">
         Категория
             <select class="form-control" id="category" name="category_id">
               @foreach($categories as $category)
@@ -72,7 +90,7 @@
 
 
  Тэги
- <div class="form-group">
+ <div class="form-group w-50">
 <select multiple class="form-control"   id="tags" name="tags[]">
 @foreach($tags as $tag)
 

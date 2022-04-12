@@ -73,6 +73,10 @@
 
 <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 
+<script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+
+
+
 
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -113,6 +117,10 @@ $(document).ready(function() {
     ['height', ['height']]
   ]
   });
+});
+
+$(function () {
+  bsCustomFileInput.init();
 });
 </script>
 
