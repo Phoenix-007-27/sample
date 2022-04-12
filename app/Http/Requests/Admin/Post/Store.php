@@ -27,7 +27,9 @@ class Store extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'category_id' => '',
-            'tags'=> 'required',
+            'tags_ids'=> 'nullable|array',
+            // 'tags_ids.*'=> 'nullable|exists:tag.id',
+
             'preview_image'=> 'required|file',
             'main_image'=> 'required|file',
 

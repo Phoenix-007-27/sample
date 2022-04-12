@@ -18,14 +18,18 @@ class UpdateController extends Controller
 
     $data = $request->validated();
 
-    dd($data);
+    
 
-$data['preview_image'] = Storage::put('/image', $data['preview_image']);
-$data['main_image'] = Storage::put('/image', $data['main_image']);
+// $data['preview_image'] = Storage::put('/image', $data['preview_image']);
+// $data['main_image'] = Storage::put('/image', $data['main_image']);
 
 
+$tags = $data['tags'];
+unset($data['tags']);
 
 $post->update($data);
+$post->tags()->sync($tags);
+
 
 return view('admin.posts.show', compact('post'));
 

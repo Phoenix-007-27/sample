@@ -42,6 +42,9 @@
 
 <div class="form-group">
    <textarea id="summernote" name="content"></textarea>
+   @error('content')
+   <div class="text-danger">Это поле необходимо для заполнения</div>
+   @enderror
 </div>
 
 <div class="form-group w-50">
@@ -76,7 +79,10 @@
         Категория
             <select class="form-control" id="category" name="category_id">
               @foreach($categories as $category)
-            <option
+            <option 
+
+                  
+            {{$category->id == old('category_id') ? ' selected' : ''}}
 
             value="{{$category->id}}">{{$category->title}}</option>
              @endforeach
@@ -88,14 +94,15 @@
 
  <div class="form-group w-50">
     Тэги
-<select multiple class="form-control"   id="tags" name="tags[]">
+<select multiple class="form-control"   id="tags_ids" name="tags_ids[]">
 @foreach($tags as $tag)
 
-    <option value="{{$tag->id}}">{{$tag->title}}</option>
+    <option {{is_array(old('tags_ids')) && in_array($tag->id, old('tags_ids')) ? ' selected' : ''}} value="{{$tag->id}}">{{$tag->title}}</option>
+   
     @endforeach
 </select>
 </div>
-@error('tags')
+@error('tags_ids')
             <div class="text-danger">Это поле необходимо для заполнения</div>
             @enderror
 

@@ -81,7 +81,7 @@
 
 <div class="form-group">
   Тэги
-<select multiple class="form-control" id="tags" name="tags[]">
+<select multiple class="form-control" id="tags_ids" name="tags_ids[]">
 @foreach($tags as $tag)
 
     <option

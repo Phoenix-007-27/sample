@@ -15,12 +15,14 @@ class StoreController extends Controller
 
 $data = $request->validated();
 
+
+
 $data['preview_image'] = Storage::put('/image', $data['preview_image']);
 $data['main_image'] = Storage::put('/image', $data['main_image']);
 
 
-$tags = $data['tags'];
-unset($data['tags']);
+$tags = $data['tags_ids'];
+unset($data['tags_ids']);
 
 
 $post = Post::firstOrCreate($data);
