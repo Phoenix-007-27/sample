@@ -18,8 +18,6 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-
-
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -39,15 +37,13 @@
             @error('title')
             <div class="text-danger">Это поле необходимо для заполнения</div>
             @enderror
+        </div>
 
 
 <div class="form-group">
-
-
-    <textarea id="summernote" name="content"></textarea>
-
-
+   <textarea id="summernote" name="content"></textarea>
 </div>
+
 <div class="form-group w-50">
     <label for="exampleInputFile">Preview Image</label>
     <div class="input-group">
@@ -89,8 +85,9 @@
 </div>
 
 
- Тэги
+
  <div class="form-group w-50">
+    Тэги
 <select multiple class="form-control"   id="tags" name="tags[]">
 @foreach($tags as $tag)
 

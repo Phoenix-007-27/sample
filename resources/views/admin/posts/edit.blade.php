@@ -32,46 +32,78 @@
         @csrf
         @method('PATCH')
         <div class="form-group">
-
             <input type="text" class="form-control" name="title" id="title" value="{{$post->title}}">
-            <input type="text" class="form-control" name="content" id="content" value="{{$post->content}}">
-
             @error('title')
             <div class="text-danger">Это поле необходимо для заполнения</div>
-
             @enderror
           </div>
+
           <div class="form-group">
-        <label for="category">Категория</lable>
+           <textarea id="summernote" name="content" > {{$post->content}}</textarea>
+         </div>
+
+         <div class="form-group">
+             <label for="exampleInputFile">Preview Image</label>
+             <div class="input-group">
+               <div class="custom-file">
+                 <input type="file" class="custom-file-input" name="preview_image" >
+                 <label class="custom-file-label" >Choose file</label>
+               </div>
+               <div class="input-group-append">
+                 <span class="input-group-text">Upload</span>
+               </div>
+             </div>
+           </div>
+
+           <div class="form-group">
+            <label for="exampleInputFile">Main Image</label>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" name="main_image" >
+                <label class="custom-file-label" >Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text">Upload</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+        Категория
             <select class="form-control" id="category" name="category_id">
               @foreach($categories as $category)
-            <option 
+            <option
             {{$category->id === $post->category->id ? ' selected' : ''}}
             value="{{$category->id}}">{{$category->title}}</option>
              @endforeach
              </select>
-          
-</div>
+            </div>
 
 <div class="form-group">
-  <lable for="tags">Тэги</lable>
+  Тэги
 <select multiple class="form-control" id="tags" name="tags[]">
 @foreach($tags as $tag)
 
-    <option 
+    <option
     @foreach($post->tags as $postTag)
     {{$tag->id === $postTag->id ? ' selected' : ''}}
     @endforeach
     value="{{$tag->id}}">{{$tag->title}}</option>
     @endforeach
 </select>
+</div>
+
 @error('tags')
-            <div class="text-danger">Это поле необходимо для заполнения</div>
-            @enderror
+<div class="text-danger">Это поле необходимо для заполнения</div>
+@enderror
+
+
+<div class="form-group">
+<input type="submit" class="btn btn-primary" value="Изменить">
 </div>
-          <input type="submit" class="btn btn-primary" value="Изменить">
-           </form>
+</form>
 </div>
+
           <!-- ./col -->
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
