@@ -17,15 +17,11 @@ class UpdateController extends Controller
 
 
     $data = $request->validated();
+    
 
-   
+$data['preview_image'] = Storage::disk('public')->put('/image', $data['preview_image']);
+$data['main_image'] = Storage::disk('public')->put('/image', $data['main_image']);
 
-    $data['preview_image'] = Storage::
-    //disk('public')->
-    put('/image', $data['preview_image']);
-    $data['main_image'] = Storage::
-    //disk('public')->
-    put('/image', $data['main_image']);
 
 
 

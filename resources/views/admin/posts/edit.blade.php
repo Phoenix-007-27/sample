@@ -28,7 +28,7 @@
 
 <div class="col-12">
       Изменение поста
-      <form action="{{route('admin.post.update', $post->id)}}" method="POST" enctype="multipart/form-data"  class="col-4">
+      <form action="{{route('admin.post.update', $post->id)}}" method="POST" enctype="multipart/form-data" class="col-4">
         @csrf
         @method('PATCH')
         <div class="form-group">
