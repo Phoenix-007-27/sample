@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Post;
+namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Store extends FormRequest
+class Update extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,21 +24,16 @@ class Store extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
-            'content' => 'required|string',
-            'category_id' => '',
-            'tags_ids'=> 'nullable|array',
-            'preview_image'=> 'nullable|file',
-            'main_image'=> 'nullable|file',
-            // 'tags_ids.*'=> 'nullable|exists:tag.id',
+        'name' => 'required|string',
+          'email' => 'required|string|email|unique:Users',
+          
         ];
     }
 
     public function messages(){
 
         return [
-            'title.required' => 'заполни поле дурак!',
+            'email.unique' => 'Такой email уже существует',
         ];
     }
-
 }

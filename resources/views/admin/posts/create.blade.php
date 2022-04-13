@@ -35,7 +35,7 @@
             <input type="text" class="form-control" name="title" id="title"  placeholder="Название поста"
             value="{{old('title')}}">
             @error('title')
-            <div class="text-danger">Это поле необходимо для заполнения</div>
+            <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
 

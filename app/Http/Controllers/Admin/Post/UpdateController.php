@@ -8,29 +8,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\Store;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Admin\Post\Update;
+use App\Http\Controllers\Admin\Post\BaseController;
 
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
    public function __invoke(Update $request, Post $post){
 
-
-
     $data = $request->validated();
-    
-
-$data['preview_image'] = Storage::disk('public')->put('/image', $data['preview_image']);
-$data['main_image'] = Storage::disk('public')->put('/image', $data['main_image']);
-
-
-
-
-$tags = $data['tags_ids'];
-unset($data['tags_ids']);
-
-$post->update($data);
-$post->tags()->sync($tags);
-
+    $post = $this->service->update($data, $post);
 
 return view('admin.posts.show', compact('post'));
 

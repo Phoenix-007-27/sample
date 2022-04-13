@@ -7,27 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\Store;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Admin\Post\BaseController;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
    public function __invoke(Store $request){
-
-
-$data = $request->validated();
-
-
-$data['preview_image'] = Storage::disk('public')->put('/image', $data['preview_image']);
-$data['main_image'] = Storage::disk('public')->put('/image', $data['main_image']);
-
-
-
-$tags = $data['tags_ids'];
-unset($data['tags_ids']);
-
-
-$post = Post::firstOrCreate($data);
-$post->tags()->attach($tags);
-
+      
+      $data = $request->validated();
+      $this->service->store($data);
+      
 return redirect()->route('admin.post.index');
 
    }
