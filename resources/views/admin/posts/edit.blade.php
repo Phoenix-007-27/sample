@@ -44,6 +44,9 @@
 
          <div class="form-group">
              <label for="exampleInputFile">Preview Image</label>
+             <div class="w-25">
+             <img src="{{url('storage/' . $post->preview_image)}}" alt="preview_image" class="w-50">
+             </div>
              <div class="input-group">
                <div class="custom-file">
                  <input type="file" class="custom-file-input" name="preview_image" >
@@ -57,10 +60,14 @@
 
            <div class="form-group">
             <label for="exampleInputFile">Main Image</label>
+            <div class="w-25">
+                <img src="{{ url('storage/' . $post->main_image)}}" alt="main_image" class="w-50">
+                </div>
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" name="main_image" >
                 <label class="custom-file-label" >Choose file</label>
+
               </div>
               <div class="input-group-append">
                 <span class="input-group-text">Upload</span>
@@ -93,7 +100,7 @@
 </select>
 </div>
 
-@error('tags')
+@error('tags_ids')
 <div class="text-danger">Это поле необходимо для заполнения</div>
 @enderror
 
