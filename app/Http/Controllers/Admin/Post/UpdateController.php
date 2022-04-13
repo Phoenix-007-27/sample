@@ -20,8 +20,9 @@ class UpdateController extends Controller
 
     
 
-// $data['preview_image'] = Storage::put('/image', $data['preview_image']);
-// $data['main_image'] = Storage::put('/image', $data['main_image']);
+ $data['preview_image'] = Storage::put('/image', $data['preview_image']);
+$data['main_image'] = Storage::put('/image', $data['main_image']);
+
 
 
 $tags = $data['tags'];
