@@ -33,9 +33,6 @@ class Store extends FormRequest
             'preview_image'=> 'required|file',
             'main_image'=> 'required|file',
 
-
-
-
         ];
     }
 }
